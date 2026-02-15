@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Multi AI Search Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo" aria-hidden="true"></div>
+      <div class="brand-text">
+        <h1>Multi AI Search Dashboard</h1>
+        <p class="subtitle">One query. Four AI engines. Open fast.</p>
+      </div>
+    </div>
+
+    <div class="topbar-right">
+      <button id="toggleTheme" class="ghost-btn" type="button" aria-label="Toggle theme">
+        <span class="dot"></span>
+        <span class="ghost-btn-text">Dark</span>
+      </button>
+      <button id="openAll" class="ghost-btn" type="button" aria-label="Open all panels in new tabs">
+        <span class="spark" aria-hidden="true">↗</span>
+        <span class="ghost-btn-text">Open all</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="search-card" aria-label="Search">
+      <form id="searchForm" class="search-row" autocomplete="off">
+        <label class="sr-only" for="queryInput">Search query</label>
+        <input id="queryInput" name="q" type="search" placeholder="Ask anything… e.g. “Best budget laptop under R10k”" />
+        <button class="primary-btn" type="submit">
+          <span>Search</span>
+          <span class="kbd" aria-hidden="true">↵</span>
+        </button>
+      </form>
+
+      <div class="hint">
+        Embed-free mode: AI sites block iframes, so this dashboard opens each AI in a new tab instead.
+      </div>
+    </section>
+
+    <section class="grid" aria-label="AI panels">
+      <article class="panel" data-engine="chatgpt">
+        <div class="panel-top">
+          <div class="panel-title">
+            <span class="pill pill-chatgpt"></span>
+            <h2>ChatGPT</h2>
+          </div>
+          <div class="panel-actions">
+            <button class="panel-btn" type="button" data-copy>Copy prompt</button>
+            <button class="panel-btn primary" type="button" data-open>Open</button>
+          </div>
+        </div>
+
+        <div class="panel-body">
+          <div class="panel-status">
+            <span class="status-dot"></span>
+            <span class="status-text">Ready</span>
+          </div>
+
+          <div class="prompt-card">
+            <div class="prompt-label">Prompt</div>
+            <div class="prompt-text" data-prompt>Type a query above, then hit Search.</div>
+          </div>
+
+          <div class="panel-foot">
+            <a class="tiny-link" href="#" data-link target="_blank" rel="noreferrer">Preview link</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="panel" data-engine="gemini">
+        <div class="panel-top">
+          <div class="panel-title">
+            <span class="pill pill-gemini"></span>
+            <h2>Gemini</h2>
+          </div>
+          <div class="panel-actions">
+            <button class="panel-btn" type="button" data-copy>Copy prompt</button>
+            <button class="panel-btn primary" type="button" data-open>Open</button>
+          </div>
+        </div>
+
+        <div class="panel-body">
+          <div class="panel-status">
+            <span class="status-dot"></span>
+            <span class="status-text">Ready</span>
+          </div>
+
+          <div class="prompt-card">
+            <div class="prompt-label">Prompt</div>
+            <div class="prompt-text" data-prompt>Type a query above, then hit Search.</div>
+          </div>
+
+          <div class="panel-foot">
+            <a class="tiny-link" href="#" data-link target="_blank" rel="noreferrer">Preview link</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="panel" data-engine="claude">
+        <div class="panel-top">
+          <div class="panel-title">
+            <span class="pill pill-claude"></span>
+            <h2>Claude</h2>
+          </div>
+          <div class="panel-actions">
+            <button class="panel-btn" type="button" data-copy>Copy prompt</button>
+            <button class="panel-btn primary" type="button" data-open>Open</button>
+          </div>
+        </div>
+
+        <div class="panel-body">
+          <div class="panel-status">
+            <span class="status-dot"></span>
+            <span class="status-text">Ready</span>
+          </div>
+
+          <div class="prompt-card">
+            <div class="prompt-label">Prompt</div>
+            <div class="prompt-text" data-prompt>Type a query above, then hit Search.</div>
+          </div>
+
+          <div class="panel-foot">
+            <a class="tiny-link" href="#" data-link target="_blank" rel="noreferrer">Preview link</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="panel" data-engine="metaai">
+        <div class="panel-top">
+          <div class="panel-title">
+            <span class="pill pill-meta"></span>
+            <h2>Meta AI</h2>
+          </div>
+          <div class="panel-actions">
+            <button class="panel-btn" type="button" data-copy>Copy prompt</button>
+            <button class="panel-btn primary" type="button" data-open>Open</button>
+          </div>
+        </div>
+
+        <div class="panel-body">
+          <div class="panel-status">
+            <span class="status-dot"></span>
+            <span class="status-text">Ready</span>
+          </div>
+
+          <div class="prompt-card">
+            <div class="prompt-label">Prompt</div>
+            <div class="prompt-text" data-prompt>Type a query above, then hit Search.</div>
+          </div>
+
+          <div class="panel-foot">
+            <a class="tiny-link" href="#" data-link target="_blank" rel="noreferrer">Preview link</a>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <footer class="footer">
+      <span class="fineprint">MVP mode A: no iframes, just fast launch + copy prompt.</span>
+      <span class="fineprint">Tip: “Open all” may be blocked by pop-up settings until you allow it.</span>
+    </footer>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+
+  <script src="site.js"></script>
+</body>
+</html>
