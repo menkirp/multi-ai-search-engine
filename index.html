@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Multi AI Search Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo" aria-hidden="true"></div>
+      <div class="brand-text">
+        <h1>Multi AI Search Dashboard</h1>
+        <p class="subtitle">One query. Four AI engines. Side-by-side.</p>
+      </div>
+    </div>
+
+    <div class="topbar-right">
+      <button id="toggleTheme" class="ghost-btn" type="button" aria-label="Toggle theme">
+        <span class="dot"></span>
+        <span class="ghost-btn-text">Dark</span>
+      </button>
+      <a class="ghost-link" href="https://github.com/" target="_blank" rel="noreferrer">GitHub Pages ready</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="search-card" aria-label="Search">
+      <form id="searchForm" class="search-row" autocomplete="off">
+        <label class="sr-only" for="queryInput">Search query</label>
+        <input id="queryInput" name="q" type="search" placeholder="Ask anything… e.g. “Best budget laptop under R10k”" />
+        <button class="primary-btn" type="submit">
+          <span>Search</span>
+          <span class="kbd" aria-hidden="true">↵</span>
+        </button>
+      </form>
+
+      <div class="hint">
+        Tip: Some AI sites block embedding in iframes. If a panel stays blank, use <b>Open in New Tab</b>.
+      </div>
+    </section>
+
+    <section class="grid" aria-label="AI panels">
+      <!-- Panel template: header, open button, iframe, fallback -->
+      <article class="panel" data-engine="chatgpt">
+        <div class="panel-top">
+          <div class="panel-title">
+            <span class="pill pill-chatgpt"></span>
+            <h2>ChatGPT</h2>
+          </div>
+          <button class="panel-open" type="button" data-open>Open in New Tab</button>
+        </div>
+
+        <div class="panel-body">
+          <iframe
+            title="ChatGPT panel"
+            loading="lazy"
+            referrerpolicy="no-referrer"
+            sandbox="allow-scripts allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin"
+          ></iframe>
+
+          <div class="fallback" data-fallback>
+            <div class="fallback-inner">
+              <div class="fallback-icon" aria-hidden="true">⛔</div>
+              <div class="fallback-text">
+                <div class="fallback-title">This AI cannot be embedded — click Open</div>
+                <div class="fallback-sub">We’ll still try to load it here, but most AI sites block iframes.</div>
+              </div>
+              <button class="secondary-btn" type="button" data-open>Open in New Tab</button>
+            </div>
+          </div>
+
+          <div class="loading" data-loading>
+            <div class="spinner" aria-hidden="true"></div>
+            <div class="loading-text">Loading…</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="panel" data-engine="gemini">
+        <div class="panel-top">
+          <div class="panel-title">
+            <span class="pill pill-gemini"></span>
+            <h2>Gemini</h2>
+          </div>
+          <button class="panel-open" type="button" data-open>Open in New Tab</button>
+        </div>
+
+        <div class="panel-body">
+          <iframe
+            title="Gemini panel"
+            loading="lazy"
+            referrerpolicy="no-referrer"
+            sandbox="allow-scripts allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin"
+          ></iframe>
+
+          <div class="fallback" data-fallback>
+            <div class="fallback-inner">
+              <div class="fallback-icon" aria-hidden="true">⛔</div>
+              <div class="fallback-text">
+                <div class="fallback-title">This AI cannot be embedded — click Open</div>
+                <div class="fallback-sub">If the panel is blank, open it in a new tab.</div>
+              </div>
+              <button class="secondary-btn" type="button" data-open>Open in New Tab</button>
+            </div>
+          </div>
+
+          <div class="loading" data-loading>
+            <div class="spinner" aria-hidden="true"></div>
+            <div class="loading-text">Loading…</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="panel" data-engine="claude">
+        <div class="panel-top">
+          <div class="panel-title">
+            <span class="pill pill-claude"></span>
+            <h2>Claude</h2>
+          </div>
+          <button class="panel-open" type="button" data-open>Open in New Tab</button>
+        </div>
+
+        <div class="panel-body">
+          <iframe
+            title="Claude panel"
+            loading="lazy"
+            referrerpolicy="no-referrer"
+            sandbox="allow-scripts allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin"
+          ></iframe>
+
+          <div class="fallback" data-fallback>
+            <div class="fallback-inner">
+              <div class="fallback-icon" aria-hidden="true">⛔</div>
+              <div class="fallback-text">
+                <div class="fallback-title">This AI cannot be embedded — click Open</div>
+                <div class="fallback-sub">We’ll try anyway, but iframe restrictions are common.</div>
+              </div>
+              <button class="secondary-btn" type="button" data-open>Open in New Tab</button>
+            </div>
+          </div>
+
+          <div class="loading" data-loading>
+            <div class="spinner" aria-hidden="true"></div>
+            <div class="loading-text">Loading…</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="panel" data-engine="metaai">
+        <div class="panel-top">
+          <div class="panel-title">
+            <span class="pill pill-meta"></span>
+            <h2>Meta AI</h2>
+          </div>
+          <button class="panel-open" type="button" data-open>Open in New Tab</button>
+        </div>
+
+        <div class="panel-body">
+          <iframe
+            title="Meta AI panel"
+            loading="lazy"
+            referrerpolicy="no-referrer"
+            sandbox="allow-scripts allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin"
+          ></iframe>
+
+          <div class="fallback" data-fallback>
+            <div class="fallback-inner">
+              <div class="fallback-icon" aria-hidden="true">⛔</div>
+              <div class="fallback-text">
+                <div class="fallback-title">This AI cannot be embedded — click Open</div>
+                <div class="fallback-sub">If embedding is blocked, use the Open button.</div>
+              </div>
+              <button class="secondary-btn" type="button" data-open>Open in New Tab</button>
+            </div>
+          </div>
+
+          <div class="loading" data-loading>
+            <div class="spinner" aria-hidden="true"></div>
+            <div class="loading-text">Loading…</div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <footer class="footer">
+      <span class="fineprint">MVP: UI first, then wiring. Hosted on GitHub Pages.</span>
+      <span class="fineprint">Note: If iframes are blocked, you’ll still have one-click “Open in New Tab”.</span>
+    </footer>
+  </main>
+
+  <script src="site.js"></script>
+</body>
+</html>
